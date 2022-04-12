@@ -35,6 +35,11 @@ func (repo *Repository) Create(consignment *pb.Consignment) (*pb.Consignment, er
 	return consignment, nil
 }
 
+// GetAll consignments
+func (repo *Repository) GetAll() []*pb.Consignment {
+	return repo.consignments
+}
+
 // Service should implement all of the methods to satisfy the service
 // we defined in our protobuf definition. You can check the interface
 // in the generated code itself for the exact method signatures etc
@@ -57,6 +62,12 @@ func (s *service) CreateConsignment(ctx context.Context, req *pb.Consignment) (*
 	// Return matching the `Response` message we created in our
 	// protobuf definition.
 	return &pb.Response{Created: true, Consignment: consignment}, nil
+}
+
+// GetConsingments - we created just one method on our service,
+func (s *service) GetConsignments(ctx context.Context, req *pb.GetRequest) (*pb.Response, error) {
+	consignments := s.repo.GetAll()
+	return &pb.Response{Consignments: consignments}, nil
 }
 
 func main() {
