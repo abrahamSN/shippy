@@ -47,18 +47,18 @@ func main() {
 		log.Fatalf("Could not parse file: %v", err)
 	}
 
-	r, err := client.CreateConsignment(context.Background(), consignment)
-	if err != nil {
-		log.Fatalf("Could not greet: %v", err)
+	r, errCreate := client.CreateConsignment(context.Background(), consignment)
+	if errCreate != nil {
+		log.Fatalf("Could not greet: %v", errCreate)
 	}
 	log.Printf("Created: %t", r.Created)
 
-	getAll, err := client.GetConsignments(context.Background(), &pb.GetRequest{})
-	log.Fatalf(getAll.Consignments[0].Description)
-	// if err != nil {
-	// 	log.Fatalf("Could not list consignments: %v", err)
-	// }
-	// for _, v := range getAll.Consignments {
-	// 	log.Println(v)
-	// }
+	getAll, errGet := client.GetConsignments(context.Background(), &pb.GetRequest{})
+	if errGet != nil {
+		log.Fatalf("Could not list consignments: %v", errGet)
+	}
+
+	for i, v := range getAll.Consignments {
+		log.Println(i, v)
+	}
 }

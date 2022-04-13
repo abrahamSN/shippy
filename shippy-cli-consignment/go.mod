@@ -2,14 +2,12 @@ module github.com/abrahamSN/shippy/shippy-cli-consignment
 
 go 1.18
 
-replace github.com/<YourUsername>/shippy/shippy-service-consignment => ../shippy-service-consignment
+replace github.com/abrahamSN/shippy/shippy-service-consignment => ../shippy-service-consignment
+
+require google.golang.org/grpc v1.45.0
 
 require (
-	github.com/abrahamSN/shippy/shippy-service-consignment v0.0.0-20220412180755-9a81af223081
-	google.golang.org/grpc v1.45.0
-)
-
-require (
+	github.com/abrahamSN/shippy/shippy-service-consignment v0.0.0-00010101000000-000000000000
 	github.com/golang/protobuf v1.5.2 // indirect
 	golang.org/x/net v0.0.0-20220412020605-290c469a71a5 // indirect
 	golang.org/x/sys v0.0.0-20220412071739-889880a91fd5 // indirect
