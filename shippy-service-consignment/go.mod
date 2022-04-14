@@ -2,7 +2,10 @@ module github.com/abrahamSN/shippy/shippy-service-consignment
 
 go 1.18
 
+replace github.com/abrahamSN/shippy/shippy-service-vessel => ../shippy-service-vessel
+
 require (
+	github.com/abrahamSN/shippy/shippy-service-vessel v0.0.0-00010101000000-000000000000
 	go-micro.dev/v4 v4.6.0
 	go.mongodb.org/mongo-driver v1.9.0
 	google.golang.org/grpc v1.45.0
