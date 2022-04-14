@@ -2,7 +2,7 @@ module github.com/abrahamSN/shippy/shippy-service-consignment
 
 go 1.18
 
-replace github.com/abrahamSN/shippy/shippy-service-vessel => ../shippy-service-vessel
+// replace github.com/abrahamSN/shippy/shippy-service-vessel => ../shippy-service-vessel
 
 require (
 	github.com/abrahamSN/shippy/shippy-service-vessel v0.0.0-00010101000000-000000000000
